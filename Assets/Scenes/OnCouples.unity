@@ -522,7 +522,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gameStartData: {fileID: 11400000, guid: 8b667dc8d4b28634e9f7c324fee1bb3a, type: 2}
   _cardGenerator: {fileID: 1281742675}
-  _infDrawer: {fileID: 1568899679}
+  _informationPanelDrawer: {fileID: 1568899679}
   _gameOverPanel: {fileID: 1879517126}
 --- !u!222 &139670326
 CanvasRenderer:
