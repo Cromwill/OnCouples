@@ -65,13 +65,4 @@ public class Generator : ScriptableObject
             positionsArray.Remove(positionsArray[index]);
         }
     }
-
-    private GameObject GameObjectGenerate(Transform parent, params Type[] components)
-    {
-        GameObject obj = new GameObject();
-        obj.GetComponent<Transform>().SetParent(parent);
-
-        foreach (Type t in components) ObjectFactory.AddComponent(obj, t);
-        return obj;
-    }
 }

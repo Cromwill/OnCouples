@@ -16,9 +16,7 @@ public class GameCicleCounter : MonoBehaviour
 
     private void Start()
     {
-        _informationPanel = new InformationPanel(_gameStartData.GameLevel, _gameStartData.GameTry, _gameStartData.GamePoints, _informationPanelDrawer);
         _verification = GetComponentInChildren<IVerificationData>();
-
         _verification.OnLossing += SendDataForDrawerLosse;
         _verification.OnWinner += SendDataForDrawerWin;
     }
@@ -26,6 +24,7 @@ public class GameCicleCounter : MonoBehaviour
     public void StartGame(Button startBatton)
     {
         startBatton.gameObject.SetActive(false);
+        _informationPanel = new InformationPanel(_gameStartData.GameLevel, _gameStartData.GameTry, _gameStartData.GamePoints, _informationPanelDrawer);
         _cardGenerator.Generate(_gameStartData.CardAmount + Difficulty());
     }
 
