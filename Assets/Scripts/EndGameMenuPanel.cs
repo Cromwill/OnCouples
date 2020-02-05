@@ -11,7 +11,7 @@ public class EndGameMenuPanel : MonoBehaviour
     [SerializeField] private Text _points;
     [SerializeField] private Button _startButton;
 
-    public event Action<Button> OnRepeatGame;
+    public event Action<Button> GameRepeating;
 
     public void ShowEndGameMenu(int playerLevel, int gameLevel, int points)
     {
@@ -28,8 +28,7 @@ public class EndGameMenuPanel : MonoBehaviour
 
     public void RepeatGame()
     {
-        //_startButton.gameObject.SetActive(true);
-        OnRepeatGame?.Invoke(_startButton);
-        this.gameObject.SetActive(false);
+        GameRepeating?.Invoke(_startButton);
+        gameObject.SetActive(false);
     }
 }

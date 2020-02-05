@@ -52,7 +52,7 @@ public class GameCicleCounter : MonoBehaviour
         _cardGenerator.ReGenerate(0);
         _gameOverPanel.SetActive(true);
         _gameOverPanel.GetComponent<EndGameMenuPanel>().ShowEndGameMenu(_playerLevel, _informationPanel.GameLevel, _informationPanel.GamePoints);
-        _gameOverPanel.GetComponent<EndGameMenuPanel>().OnRepeatGame += RestartGame;
+        _gameOverPanel.GetComponent<EndGameMenuPanel>().GameRepeating += RestartGame;
     }
 
     private void LevelVictory()
@@ -68,8 +68,8 @@ public class GameCicleCounter : MonoBehaviour
 
     private void QuantityCheck()
     {
-        var v = FindObjectsOfType<GameCard>().Where(a=> a.IsOffside() == false);
-        if (v.Count() <= 0) LevelVictory();
+        if (_cardGenerator.IsCardsOpen())
+            LevelVictory();
     }
 
     private int Difficulty()
